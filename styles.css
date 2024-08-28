@@ -1,0 +1,204 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e0e7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Styles for the card component */
+.card {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 800px;
+    transition: transform 0.3s ease;
+    position: relative;
+    padding: 0;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Style for the card image */
+.card-image {
+    width: 35%;
+    object-fit: cover;
+    border: none;
+}
+
+.card-content {
+    padding: 20px;
+    width: 60%;
+}
+
+.card-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.share-icons h3 {
+    color: #FFFFFF;
+}
+
+.card-content p {
+    color: #6e8098;
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.author-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.author-info p {
+    margin: 0;
+    color: #6e8098;
+    font-size: 0.9em;
+}
+
+/* Positioning and styles for share button */
+.share {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.share-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.share-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(110, 128, 152, 0.8);
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.share-button:hover::before {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+}
+
+.share-button.active::before {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+}
+
+#share-icons {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    right: 0;
+    display: none;
+    background-color: #6e8098;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 10px;
+    align-items: center;
+}
+
+#share-icons::before {
+    content: '';
+    position: absolute;
+    bottom: -8px; 
+    right: 15px; 
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #6e8098; 
+}
+
+.share-button.active + #share-icons {
+    display: flex;
+}
+
+.share-icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.share-icon svg {
+    fill: white;
+}
+
+.share-text {
+    color: white;
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .card-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-content {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .card-content h2 {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+
+    .card-content p {
+        font-size: 0.85em;
+        margin-bottom: 15px;
+    }
+
+    .author {
+        margin-bottom: 15px;
+    }
+
+    .share {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    #share-icons {
+        bottom: calc(100% + 15px);
+        right: 15px;
+    }
+}
